@@ -66,12 +66,20 @@
  - target
    - grpc[generated]
      - contains all java classes generated for proto files
- 
+### Annotations
+ - @GrpcService
 ### gRPC Server
- - services are running on gRPC server
+ - gRPC services are running on gRPC server
  - By default, the server is exposed on localhost:9000, and uses plain-text (so no TLS) when running normally, 
     and localhost:9001 for tests
  - mvn quarkus:dev
 
 ## Consuming gRPC API
- - 
+### Annotations
+  - @GrpcClient
+    - name : string
+  - we need to configure the application to indicate where the grpc service is found
+    - src/main/resources/application.properties file,
+    ````
+    quarkus.grpc.clients.hello.host=localhost
+    ````
